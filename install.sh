@@ -10,17 +10,17 @@ UBUNTU_CODENAME=$(grep VERSION_CODENAME /etc/os-release | cut -d'=' -f2)
 apt-get update && apt-get install -y wget gnupg curl
 
 # Install yq
-wget https://github.com/mikefarah/yq/releases/download/"${YQ_VERSION}"/yq_linux_"${ARCH}" -O /usr/local/bin/yq
+wget -q https://github.com/mikefarah/yq/releases/download/"${YQ_VERSION}"/yq_linux_"${ARCH}" -O /usr/local/bin/yq
 chmod +x /usr/local/bin/yq
 
 # Install wait-for-port
-wget https://github.com/bitnami/wait-for-port/releases/download/"${WAIT_FOR_PORT_VERSION}"/wait-for-port-linux-"${ARCH}".tar.gz
+wget -q https://github.com/bitnami/wait-for-port/releases/download/"${WAIT_FOR_PORT_VERSION}"/wait-for-port-linux-"${ARCH}".tar.gz
 tar -xzf wait-for-port-linux-"${ARCH}".tar.gz -C /usr/local/bin wait-for-port-linux-"${ARCH}"
 mv /usr/local/bin/wait-for-port-linux-"${ARCH}" /usr/local/bin/wait-for-port
 chmod +x /usr/local/bin/wait-for-port
 
 # Install render-template
-wget https://github.com/bitnami/render-template/releases/download/"${RENDER_TEMPLATE_VERSION}"/render-template-linux-"${ARCH}".tar.gz
+wget -q https://github.com/bitnami/render-template/releases/download/"${RENDER_TEMPLATE_VERSION}"/render-template-linux-"${ARCH}".tar.gz
 tar -xzf render-template-linux-"${ARCH}".tar.gz -C /usr/local/bin render-template-linux-"${ARCH}"
 mv /usr/local/bin/render-template-linux-"${ARCH}" /usr/local/bin/render-template
 chmod +x /usr/local/bin/render-template
@@ -39,7 +39,7 @@ ln -sf /usr/bin/mongod /opt/bitnami/mongodb/bin/mongod
 
 # Install MongoDB Shell
 ARCH2=$( [ "$ARCH" = "amd64" ] && echo "x64" || echo "arm64" )
-wget https://downloads.mongodb.com/compass/mongosh-"${MONGODB_SHELL_VERSION}"-linux-"${ARCH2}".tgz
+wget -q https://downloads.mongodb.com/compass/mongosh-"${MONGODB_SHELL_VERSION}"-linux-"${ARCH2}".tgz
 tar xvzf mongosh-"${MONGODB_SHELL_VERSION}"-linux-"${ARCH2}".tgz > /dev/null
 mv mongosh-"${MONGODB_SHELL_VERSION}"-linux-"${ARCH2}"/bin/* /opt/bitnami/mongodb/bin/
 
