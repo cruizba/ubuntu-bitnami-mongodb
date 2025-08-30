@@ -1,0 +1,41 @@
+name: Build and push Docker image
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+env:
+  MONGODB_MAJOR: 8.0
+  MONGODB_VERSION: 8.0.12
+  BUILD_NUMBER: 0
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Login to DockerHub
+        uses: docker/login-action@v3
+        with:
+          username: cruizba
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build and push standalone image
+        uses: docker/build-push-action@v6
+        with:
+          push: true
+          file: Dockerfile
+          platforms: linux/amd64,linux/arm64
+          tags: |
+            cruizba/ubuntu-bitnami-mongodb:latest
+            cruizba/ubuntu-bitnami-mongodb:${{ env.MONGODB_MAJOR }}
+            cruizba/ubuntu-bitnami-mongodb:${{ env.MONGODB_VERSION }}-r${{ env.BUILD_NUMBER }}
