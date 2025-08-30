@@ -19,9 +19,9 @@ Non-official copy of the Bitnami MongoDB image but using Ubuntu instead of Debia
 
 Official Bitnami image has some limitations:
 
-    - Singe 28th August 2024, Bitnami no longer will provide new updates for the current Debian based images.
-    - MongoDB in Debian is not available for ARM64 architecture.
-    - The minideb package used by Bitnami seems complicated to me and it does not fit my own use cases.
+- Singe 28th August 2024, Bitnami no longer will provide new updates for the current Debian based images.
+- MongoDB in Debian is not available for ARM64 architecture.
+- The minideb package used by Bitnami seems complicated to me and it does not fit my own use cases.
 
 ## Credits
 
