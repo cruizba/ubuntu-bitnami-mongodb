@@ -41,3 +41,35 @@ Or for Replica Set:
 ```
 docker compose -f docker-compose-replicaset.yml up
 ```
+
+## 5. Available images
+
+You can find the available images in the [Docker Hub](https://hub.docker.com/r/cruizba/ubuntu-bitnami-mongodb).
+Check also the Releases section to see the available tags: [Releases](https://github.com/cruizba/ubuntu-bitnami-mongodb/releases).
+
+All tags are released in this format:
+
+
+### Fixed images
+
+```bash
+cruizba/ubuntu-bitnami-mongodb:<mongodb-version>
+```
+
+### Fixed images and revision
+
+```bash
+cruizba/ubuntu-bitnami-mongodb:<mongodb-version>-r<revision>
+```
+
+### Major Version Tags:
+
+```bash
+cruizba/ubuntu-bitnami-mongodb:<major-version>
+```
+
+### Latest Images:
+
+```bash
+cruizba/ubuntu-bitnami-mongodb:latest
+```
