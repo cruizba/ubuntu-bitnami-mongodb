@@ -3,7 +3,7 @@
 Non-official copy of the Bitnami MongoDB image but using Ubuntu instead of Debian.
 
 - Base image: `ubuntu:24.04`
-- Works like the Bitnami mongodb image
+- Works like the Bitnami MongoDB image
 - Support for AMD64 and ARM64 architectures
 
 > [!WARNING]
@@ -21,7 +21,7 @@ Official Bitnami image has some limitations:
 
 - Singe 28th August 2024, Bitnami no longer push new versions of Debian-based images to Docker Hub.
 - MongoDB on Debian is not available for ARM64 architecture.
-- The minideb package used by Bitnami seems complicated to me and it does not fit my own use cases.
+- The minideb package used by Bitnami seems complicated to me, and it does not fit my own use cases.
 
 ## Credits
 
