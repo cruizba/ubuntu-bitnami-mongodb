@@ -25,7 +25,7 @@ Official Bitnami image has some limitations:
 
 ## Credits
 
-- This project was inspired by the official Bitnami MongoDB image.
+- This project is a literal copy of the Bitnami MongoDB image, but installing MongoDB on top of Ubuntu instead of Debian.
 - @dlavrenuek image at [dlavrenuek/bitnami-mongodb-arm](https://github.com/dlavrenuek/bitnami-mongodb-arm), which is also a non-official copy of the Bitnami MongoDB image for ARM64 architecture but using Debian.
 
 ## Usage
