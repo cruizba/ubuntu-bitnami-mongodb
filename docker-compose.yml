@@ -4,8 +4,6 @@
 services:
   mongodb:
     image: docker.io/cruizba/ubuntu-bitnami-mongodb:latest
-    environment:
-      - BITNAMI_DEBUG=true
     ports:
       - "27017:27017"
     volumes:
