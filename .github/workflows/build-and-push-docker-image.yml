@@ -9,7 +9,7 @@ env:
   MONGODB_MAJOR: '8'
   MONGODB_MAJOR_MINOR: '8.0'
   MONGODB_VERSION: '8.0.12'
-  BUILD_NUMBER: 1
+  BUILD_NUMBER: 0
 
 jobs:
   docker:
