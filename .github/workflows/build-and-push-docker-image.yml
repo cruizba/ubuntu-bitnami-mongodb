@@ -5,6 +5,11 @@ on:
     types: [published]
   workflow_dispatch:
 
+permissions:
+  actions: read
+  contents: read
+  security-events: write
+
 env:
   MONGODB_MAJOR: '8'
   MONGODB_MAJOR_MINOR: '8.0'
