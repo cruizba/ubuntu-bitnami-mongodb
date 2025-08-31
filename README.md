@@ -15,6 +15,13 @@ Non-official copy of the Bitnami MongoDB image but using Ubuntu instead of Debia
     - [render-template](https://github.com/bitnami/render-template)
     - [MongoDB and MongoDB-Shell](https://www.mongodb.com/try/download/community)
 
+## Table of Contents
+
+- [Why another image?](#why-another-image)
+- [Credits](#credits)
+- [Usage](#usage)
+- [Available images](#available-images)
+
 ## Why another image?
 
 Official Bitnami image has some limitations:
@@ -42,7 +49,7 @@ Or for Replica Set:
 docker compose -f docker-compose-replicaset.yml up
 ```
 
-## 5. Available images
+## Available images
 
 You can find the available images in the [Docker Hub](https://hub.docker.com/r/cruizba/ubuntu-bitnami-mongodb).
 Check also the Releases section to see the available tags: [Releases](https://github.com/cruizba/ubuntu-bitnami-mongodb/releases).
