@@ -48,14 +48,15 @@ jobs:
             cruizba/ubuntu-bitnami-mongodb:${{ env.MONGODB_VERSION }}-r${{ env.BUILD_NUMBER }}
             cruizba/ubuntu-bitnami-mongodb:latest
 
-      - name: Scan Docker image with Trivy
-        uses: aquasecurity/trivy-action@0.28.0
-        with:
-          image-ref: 'cruizba/ubuntu-bitnami-mongodb:latest'
-          format: 'sarif'
-          output: 'trivy-results.sarif'
+      - name: Setup Trivy
+        uses: aquasecurity/setup-trivy@v0.2.4
 
-      - name: Upload Trivy SARIF Report
-        uses: github/codeql-action/upload-sarif@v3
-        with:
-          sarif_file: 'trivy-results.sarif'
+      - name: Scan Docker image for vulnerabilities
+        run: trivy image cruizba/ubuntu-bitnami-mongodb:latest --exit-code 0 --no-progress --ignore-unfixed --format json --output trivy.json
+
+      - name: Format Trivy results
+        shell: pwsh
+        run: Get-Content trivy.json | ConvertFrom-Json | Select-Object -ExpandProperty Results | Select-Object -ExpandProperty Vulnerabilities | Select-Object Severity, PkgName, InstalledVersion, FixedVersion, Status, Title | ConvertTo-Html -Fragment | Out-File trivy.html
+
+      - name: Add Trivy results to GitHub summary
+        run: cat trivy.html >> $GITHUB_STEP_SUMMARY
