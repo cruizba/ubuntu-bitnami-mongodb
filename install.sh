@@ -29,9 +29,9 @@ chmod +x /usr/local/bin/render-template
 mkdir -p /opt/bitnami/mongodb/bin
 
 # Install MongoDB
-curl -fsSL https://www.mongodb.org/static/pgp/server-"${MONGODB_MAJOR}".asc | \
-    gpg --dearmor -o /usr/share/keyrings/mongodb-server-"${MONGODB_MAJOR}".gpg
-echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-${MONGODB_MAJOR}.gpg ] https://repo.mongodb.org/apt/ubuntu ${UBUNTU_CODENAME}/mongodb-org/${MONGODB_MAJOR} multiverse" | \
+curl -fsSL https://www.mongodb.org/static/pgp/server-"${MONGODB_MAJOR}.0".asc | \
+    gpg --dearmor -o /usr/share/keyrings/mongodb-server-"${MONGODB_MAJOR}.0".gpg
+echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-${MONGODB_MAJOR}.0.gpg ] https://repo.mongodb.org/apt/ubuntu ${UBUNTU_CODENAME}/mongodb-org/${MONGODB_MAJOR_MINOR} multiverse" | \
     tee /etc/apt/sources.list.d/mongodb-org-"${MONGODB_MAJOR}".list
 apt-get update
 apt-get install -y mongodb-org-server="${MONGODB_VERSION}"
