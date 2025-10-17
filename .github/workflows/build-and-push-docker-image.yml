@@ -6,7 +6,6 @@ on:
   workflow_dispatch:
 
 env:
-  MONGODB_MAJOR: '8'
   MONGODB_MAJOR_MINOR: '8.0'
   MONGODB_VERSION: '8.0.15'
   BUILD_NUMBER: 0
@@ -37,7 +36,6 @@ jobs:
           file: Dockerfile
           platforms: linux/amd64,linux/arm64
           tags: |
-            cruizba/ubuntu-bitnami-mongodb:${{ env.MONGODB_MAJOR }}
             cruizba/ubuntu-bitnami-mongodb:${{ env.MONGODB_MAJOR_MINOR }}
             cruizba/ubuntu-bitnami-mongodb:${{ env.MONGODB_VERSION }}
             cruizba/ubuntu-bitnami-mongodb:${{ env.MONGODB_VERSION }}-r${{ env.BUILD_NUMBER }}
