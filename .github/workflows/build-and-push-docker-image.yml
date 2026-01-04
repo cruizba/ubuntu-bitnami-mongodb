@@ -7,7 +7,7 @@ on:
 
 env:
   MONGODB_MAJOR_MINOR: '8.0'
-  MONGODB_VERSION: '8.0.15'
+  MONGODB_VERSION: '8.0.17'
   BUILD_NUMBER: 0
 
 jobs:

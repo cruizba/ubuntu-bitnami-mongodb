@@ -1,12 +1,12 @@
 FROM ubuntu:24.04
 
 # Define environment variables
-ENV YQ_VERSION=v4.47.1 \
+ENV YQ_VERSION=v4.50.1 \
     WAIT_FOR_PORT_VERSION=v1.0.10 \
     RENDER_TEMPLATE_VERSION=v1.0.9 \
     MONGODB_MAJOR=8.0 \
-    MONGODB_VERSION=8.0.15 \
-    MONGODB_SHELL_VERSION=2.5.7 \
+    MONGODB_VERSION=8.0.17 \
+    MONGODB_SHELL_VERSION=2.5.10 \
     DEBIAN_FRONTEND=noninteractive
 
 # Copy install script
