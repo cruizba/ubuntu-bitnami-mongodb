@@ -19,7 +19,7 @@ set -o pipefail
 # bypassing the setup.sh logic. If the file already exists do not overwrite (in
 # case someone mounts a configuration file in /opt/bitnami/mongodb/conf)
 debug "Copying files from $MONGODB_DEFAULT_CONF_DIR to $MONGODB_CONF_DIR"
-cp --update=none -r "$MONGODB_DEFAULT_CONF_DIR"/. "$MONGODB_CONF_DIR"
+cp -nr "$MONGODB_DEFAULT_CONF_DIR"/. "$MONGODB_CONF_DIR"
 
 if [[ "$1" = "/opt/bitnami/scripts/mongodb/run.sh" ]]; then
     info "** Starting MongoDB setup **"
