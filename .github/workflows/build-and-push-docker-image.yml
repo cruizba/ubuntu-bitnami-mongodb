@@ -21,8 +21,7 @@ jobs:
 
       - name: Fix Docker MTU for GitHub Actions
         run: |
-          sudo jq '. + {"mtu": 1450}' /etc/docker/daemon.json > /tmp/daemon.json
-          sudo mv /tmp/daemon.json /etc/docker/daemon.json
+          echo '{"mtu": 1450}' | sudo tee /etc/docker/daemon.json > /dev/null
           sudo systemctl restart docker
 
       - name: Set up Docker Buildx
