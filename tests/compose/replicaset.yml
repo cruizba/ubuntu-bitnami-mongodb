@@ -1,6 +1,14 @@
+networks:
+  replicaset-net:
+    driver: bridge
+    driver_opts:
+      com.docker.network.driver.mtu: 1450
+
 services:
   mongodb-primary:
     image: ${MONGODB_IMAGE:-cruizba/ubuntu-bitnami-mongodb:8.2}
+    networks:
+      - replicaset-net
     environment:
       - MONGODB_ADVERTISED_HOSTNAME=mongodb-primary
       - MONGODB_REPLICA_SET_MODE=primary
@@ -11,6 +19,8 @@ services:
 
   mongodb-secondary:
     image: ${MONGODB_IMAGE:-cruizba/ubuntu-bitnami-mongodb:8.2}
+    networks:
+      - replicaset-net
     depends_on:
       - mongodb-primary
     environment:
@@ -22,6 +32,8 @@ services:
 
   mongodb-arbiter:
     image: ${MONGODB_IMAGE:-cruizba/ubuntu-bitnami-mongodb:8.2}
+    networks:
+      - replicaset-net
     depends_on:
       - mongodb-primary
     environment:
