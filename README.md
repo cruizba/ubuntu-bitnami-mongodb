@@ -6,8 +6,8 @@ Non-official copy of the Bitnami MongoDB image but using Ubuntu instead of Debia
 - Works like the Bitnami MongoDB image
 - Support for AMD64 and ARM64 architectures
 
-> [!WARNING]
-> The image is not well tested yet, but it should work as expected. Official binaries from MongoDB and Bitnami are used.
+> [!NOTE]
+> The image includes basic tests to ensure the behavior matches the Bitnami image. Official binaries from MongoDB and Bitnami are used.
 
 - Installed software in the image:
     - [yq](https://github.com/mikefarah/yq)
