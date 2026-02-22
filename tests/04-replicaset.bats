@@ -14,10 +14,11 @@ setup_file() {
     # Wait for primary to be ready
     wait_for_mongodb "$PRIMARY" 180 27017 root rootpass123
     # Wait for all members to reach their expected state (queried from primary)
-    wait_for_rs_member "$PRIMARY" "mongodb-secondary" "SECONDARY" 120 root rootpass123
-    wait_for_rs_member "$PRIMARY" "mongodb-arbiter" "ARBITER" 120 root rootpass123
+    # CI runners can be slow, so allow generous timeouts for replica set convergence
+    wait_for_rs_member "$PRIMARY" "mongodb-secondary" "SECONDARY" 300 root rootpass123
+    wait_for_rs_member "$PRIMARY" "mongodb-arbiter" "ARBITER" 300 root rootpass123
     # Also ensure secondary container is connectable (it restarts during init)
-    wait_for_mongodb "$SECONDARY" 120 27017 root rootpass123
+    wait_for_mongodb "$SECONDARY" 300 27017 root rootpass123
 }
 
 teardown_file() {
